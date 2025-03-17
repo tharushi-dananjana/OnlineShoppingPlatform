@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/470c617e79.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+    <header class="bg-blue-600 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-white text-2xl font-bold flex items-center">
+                <span>E-Shopper</span>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="hidden md:flex items-center bg-white px-3 py-2 rounded-lg shadow">
+                <input type="text" placeholder="Search..." class="outline-none px-2 text-gray-700">
+                <button class="text-blue-600">
+                    <i class="fas fa-search"></i>
+                </button><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shopper</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/470c617e79.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-blue-600 flex items-center">
+                <i class="fas fa-shopping-bag text-3xl mr-2"></i>
+                <span>E-Shopper</span>
+            </a>
+            
+            <!-- Search Bar -->
+            <div class="hidden md:flex items-center border rounded-lg overflow-hidden">
+                <input type="text" class="px-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search products...">
+                <button class="bg-blue-600 text-white px-4 py-2 hover:bg-blue-700">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-200">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-200">About</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-200">Services</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-200">Contact</a>
+            </nav>
+
+            <!-- Cart and Login Buttons -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button class="relative text-gray-600 hover:text-blue-600 transition duration-200">
+                    <i class="fas fa-shopping-cart text-2xl"></i>
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1.5">3</span>
+                </button>
+                
+                <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                    Login
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-blue-600 text-3xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-blue-600 text-white">
+            <a href="#" class="block px-4 py-3 hover:bg-blue-500 transition duration-200">Home</a>
+            <a href="#" class="block px-4 py-3 hover:bg-blue-500 transition duration-200">About</a>
+            <a href="#" class="block px-4 py-3 hover:bg-blue-500 transition duration-200">Services</a>
+            <a href="#" class="block px-4 py-3 hover:bg-blue-500 transition duration-200">Contact</a>
+            <a href="#" class="block px-4 py-3 bg-white text-blue-600 mx-4 my-3 rounded-lg text-center hover:bg-gray-200 transition duration-200">
+                Login
+            </a>
+        </div>
+    </header>
+
+    <script>
+        // Toggle Mobile Menu
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
+
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="text-white hover:text-gray-200">Home</a>
+                <a href="#" class="text-white hover:text-gray-200">About</a>
+                <a href="#" class="text-white hover:text-gray-200">Services</a>
+                <a href="#" class="text-white hover:text-gray-200">Contact</a>
+            </nav>
+
+            <!-- Login Button -->
+            <div class="hidden md:block">
+                <a href="#" class="bg-white text-blue-600 px-4 py-2 rounded-lg shadow hover:bg-gray-200">Login</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-700 py-3">
+            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">Home</a>
+            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">About</a>
+            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">Services</a>
+            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">Contact</a>
+            <a href="#" class="block text-white text-center py-2 mt-2 bg-white text-blue-600 mx-10 py-2 rounded-lg shadow hover:bg-gray-200">Login</a>
+        </div>
+    </header>
+
+    <script>
+        // Toggle Mobile Menu
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
