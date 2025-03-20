@@ -1,152 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script src="https://kit.fontawesome.com/470c617e79.js" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-</head>
-<body>
+<%@ include file="./partials/header.jsp"%>
 
-    <header class="bg-blue-600 shadow-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#" class="text-white text-2xl font-bold flex items-center">
-                <span>E-Shopper</span>
-            </a>
+    <!-- Hero Section (Image Slider with Auto Change) -->
+    <section x-data="{ activeSlide: 1, slides: 3, interval: null }"
+    x-init="interval = setInterval(() => { activeSlide = activeSlide === slides ? 1 : activeSlide + 1 }, 5000)"
+    class="relative w-full h-[500px] overflow-hidden">
 
-            <!-- Search Bar -->
-            <div class="hidden md:flex items-center bg-white px-3 py-2 rounded-lg shadow">
-                <input type="text" placeholder="Search..." class="outline-none px-2 text-gray-700">
-                <button class="text-blue-600">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex space-x-6">
-                <a href="#" class="text-white hover:text-gray-200">Home</a>
-                <a href="#" class="text-white hover:text-gray-200">About</a>
-                <a href="#" class="text-white hover:text-gray-200">Services</a>
-                <a href="#" class="text-white hover:text-gray-200">Contact</a>
-            </nav>
-
-            <!-- Login Button -->
-            <div class="hidden md:block">
-                <a href="#" class="bg-white text-blue-600 px-4 py-2 rounded-lg shadow hover:bg-gray-200">Login</a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-white text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-blue-700 py-3">
-            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">Home</a>
-            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">About</a>
-            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">Services</a>
-            <a href="#" class="block text-white text-center py-2 hover:bg-blue-800">Contact</a>
-            <a href="#" class="block text-white text-center py-2 mt-2 bg-white text-blue-600 mx-10 py-2 rounded-lg shadow hover:bg-gray-200">Login</a>
-        </div>
-    </header>
-
-    <script>
-        // Toggle Mobile Menu
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-    </script>
-
-        <!-- Hero Section -->
-        <section class="bg-gray-900 text-white">
-            <div class="container mx-auto px-6 py-20 flex flex-col-reverse lg:flex-row items-center">
-                
-                <!-- Hero Text -->
-                <div class="lg:w-1/2 text-center lg:text-left">
-                    <h1 class="text-4xl font-bold mb-4">Upgrade Your Shopping Experience</h1>
-                    <p class="mb-6 text-lg text-gray-300">Find the best deals on top-quality products. Shop now and save big with E-Shopper!</p>
-                    <a href="#products" class="bg-blue-600 px-8 py-3 text-white rounded-lg text-lg hover:bg-blue-700 transition duration-200">
-                        Shop Now
-                    </a>
-                </div>
-    
-                <!-- Hero Image -->
-                <div class="lg:w-1/2">
-                    <img src="./pic12.jpg" alt="Shopping Hero Image" class="w-full h-auto">
+    <!-- Slides -->
+    <template x-for="slide in slides" :key="slide">
+        <div class="absolute inset-0 transition-opacity duration-1000"
+            x-show="activeSlide === slide"
+            x-transition:enter="opacity-0"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100">
+            <img :src="[
+                './assets/banner-1.jpg',
+                './assets/banner-2.jpg',
+                './assets/banner-3.jpg'
+            ][slide - 1]" alt="Slide" class="w-full h-full object-cover">
+            <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 flex items-center">
+                <div class="container mx-auto px-6 text-white">
+                    <h2 class="text-4xl font-bold" x-text="[
+                        'Discover the Best Deals',
+                        'Latest Fashions Designs',
+                        'Buy Some Home Essentials'
+                    ][slide - 1]"></h2>
+                    <p class="mt-2 text-lg" x-text="[
+                        'Shop now and enjoy exclusive discounts on top brands.',
+                        'Get the newest cloths at unbeatable prices.',
+                        'Discover premium home essentials and furniture.'
+                    ][slide - 1]"></p>
+                    <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">Shop Now</a>
                 </div>
             </div>
-        </section>
-
-    
-
-    <!-- Products Section -->
-<section class="container mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Featured Products</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-        <!-- Product 1 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic1.jpg" alt="Wireless Headphones" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Wireless Headphones</h3>
-                <p class="text-gray-600">$59.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
         </div>
+    </template>
 
-        <!-- Product 2 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic2.jpg" alt="Smart Watch" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Smart Watch</h3>
-                <p class="text-gray-600">$129.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
+    <!-- Navigation Arrows -->
+    <button @click="activeSlide = activeSlide === 1 ? slides : activeSlide - 1"
+        class="absolute left-5 top-1/2 transform -translate-y-1/2 text-white text-2xl bg-black bg-opacity-50 px-3 py-2 rounded-full hover:bg-opacity-75 transition">
+        <i class="fas fa-chevron-left"></i>
+    </button>
 
-        <!-- Product 3 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic3.jpg" alt="Bluetooth Speaker" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Bluetooth Speaker</h3>
-                <p class="text-gray-600">$89.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
+    <button @click="activeSlide = activeSlide === slides ? 1 : activeSlide + 1"
+        class="absolute right-5 top-1/2 transform -translate-y-1/2 text-white text-2xl bg-black bg-opacity-50 px-3 py-2 rounded-full hover:bg-opacity-75 transition">
+        <i class="fas fa-chevron-right"></i>
+    </button>
 
-        <!-- Product 4 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic4.jpg" alt="Gaming Mouse" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Gaming Mouse</h3>
-                <p class="text-gray-600">$49.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic5.jpg" alt="Laptop Backpack" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Laptop Backpack</h3>
-                <p class="text-gray-600">$39.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
-
-       
-
-        
+    <!-- Dots Navigation -->
+    <div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <template x-for="n in slides" :key="n">
+            <button @click="activeSlide = n"
+                class="w-3 h-3 rounded-full transition-all duration-300"
+                :class="activeSlide === n ? 'bg-blue-500 scale-125' : 'bg-gray-300'"></button>
+        </template>
     </div>
-</section>
 
-</body>
-</html>
- 
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="container mx-auto px-6 py-10">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Featured Products</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            
+            <c:forEach var="product" items="${products}">
+	            <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition">
+	                <img src="assets/products/${product.fileName}" alt="Product 1" class="w-full h-52 object-cover">
+	                <div class="p-4">	
+	                    <h3 class="text-lg font-semibold text-gray-800">${product.title}</h3>
+	                    <p class="text-blue-500 font-bold mt-1">$${product.price}</p>
+	                    <button class="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg w-full hover:bg-blue-600 transition">
+	                        Add to Cart
+	                    </button>
+	                </div>
+	            </div>
+			</c:forEach>
+        </div>
+    </section>
+
+<%@ include file="./partials/footer.jsp"%>  

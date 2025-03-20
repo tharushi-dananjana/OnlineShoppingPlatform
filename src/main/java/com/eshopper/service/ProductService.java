@@ -49,9 +49,11 @@ public class ProductService {
     public List<Product> getAllProducts() {
         List<Product> products = new ArrayList<>();
         String query = "SELECT * FROM products";
+        
         try (Connection connection = DBConnection.getConnection();
-             Statement stmt = connection.createStatement()) {
-            ResultSet rs = stmt.executeQuery(query);
+             Statement stmt = connection.createStatement(); 
+            ResultSet rs = stmt.executeQuery(query)){
+            
             while (rs.next()) {
                 Product product = new Product();
                 product.setId(rs.getInt("id"));
@@ -60,6 +62,7 @@ public class ProductService {
                 product.setFileName(rs.getString("fileName"));
                 products.add(product);
             }
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
