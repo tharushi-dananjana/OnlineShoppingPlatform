@@ -141,55 +141,7 @@
             </div>
         </div>
 
-        <!-- Product 6 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic6.jpg" alt="USB-C Hub" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">USB-C Hub</h3>
-                <p class="text-gray-600">$24.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Product 7 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic7.jpg" alt="4K Monitor" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">4K Monitor</h3>
-                <p class="text-gray-600">$299.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Product 8 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic8.jpg" alt="Smartphone Stand" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Smartphone Stand</h3>
-                <p class="text-gray-600">$15.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Product 9 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic9.jpg" alt="Wireless Charger" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Wireless Charger</h3>
-                <p class="text-gray-600">$29.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Product 10 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src="./pic10.jpg" alt="Gaming Keyboard" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h3 class="text-lg font-semibold text-gray-800">Gaming Keyboard</h3>
-                <p class="text-gray-600">$79.99</p>
-                <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Add to Cart</button>
-            </div>
-        </div>
+       
 
         
     </div>
