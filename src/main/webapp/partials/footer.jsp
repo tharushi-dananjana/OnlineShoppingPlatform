@@ -57,7 +57,7 @@
 
         <!-- Credit Section -->
         <div class="border-t border-gray-700 mt-10 pt-5 text-center">
-            <p class="text-sm">© 2025 E-Shopper. All rights reserved. Designed & Developed by <span class="text-blue-500">Anupa Prabhasara</span></p>
+            <p class="text-sm">© 2025 E-Shopper. All rights reserved. Designed & Developed by <span class="text-blue-500">Tharushi Dananjana</span></p>
         </div>
     </footer>
 </body>
